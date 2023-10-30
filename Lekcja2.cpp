@@ -90,7 +90,6 @@ void newton(int n, double tabx[], double taby[], double p)
 			}
 		odp += W[i];
 	}
-	cout << "\n----------------- Rozwiazanie -------------------\n\n" << endl;
 	cout << "Policzone ilorazy rozniczkowe: "<<endl;
 	for (i = 0; i < n;i++)
 	{
@@ -102,17 +101,6 @@ void newton(int n, double tabx[], double taby[], double p)
 		cout << "Dla i=" << i << " = " << W[i] << " " << endl;
 	}
 	cout << "\nOdpowiedz koncowa:  "<<endl;
-	cout << "W(" << p << ") = ";
-	for (i = 0; i < n;i++)
-	{
-		if (i != n - 1)
-		{
-			cout << W[i] << " + ";
-		}
-		else
-		{
-			cout << W[i];
-		}	
-	}
-	cout << " = " << odp;
+	cout << "W(" << p << ") = " << odp << endl;
+	
 }
