@@ -203,7 +203,7 @@ int main()
                 cout << "X[" << i << "] = " << tabXPierwiastek[i] << "   F[" << i << "] = " << tabY[i] << endl;
             }
 
-            cout << "\nUklad rownan wydlada w taki sposob:" << endl;
+            cout << "\nUklad rownan wyglada w taki sposob:" << endl;
             double a, b, c, d, s1, s2;
             a = lw;
             b = 0;
