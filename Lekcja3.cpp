@@ -36,9 +36,8 @@ int main()
 	{
 		cout << "Y[" << i << "] - ";
 		cin >> taby[i];
-		if (i>=0 && tabx[i] < tabx[i - 1])
-		{
-			sprawdz = 1;
-		}
+		
     }
+
+    
 }
