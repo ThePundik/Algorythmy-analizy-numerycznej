@@ -1,0 +1,1 @@
+CMakeLists.txt not found in /Users/thepundik/Desktop/Semestr 3/Algorythmy analizy numerycznej Select CMakeLists.txt
