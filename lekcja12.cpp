@@ -2,20 +2,21 @@
 #include <vector>
 #include <cmath>
 
+using namespace std;
 
-void printMatrix(const std::vector<std::vector<double>>& matrix) {
+void printMatrix(const vector<vector<double>>& matrix) {
     for (const auto& row : matrix) {
         for (double val : row) {
-            std::cout << val << "\t";
+            cout << val << "\t";
         }
-        std::cout << std::endl;
+        cout << endl;
     }
 }
 
 
-std::vector<std::vector<double>> choleskyDecomposition(const std::vector<std::vector<double>>& A) {
+vector<vector<double>> choleskyDecomposition(const vector<vector<double>>& A) {
     int n = A.size();
-    std::vector<std::vector<double>> L(n, std::vector<double>(n, 0.0));
+    vector<vector<double>> L(n, vector<double>(n, 0.0));
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j <= i; ++j) {
@@ -24,7 +25,7 @@ std::vector<std::vector<double>> choleskyDecomposition(const std::vector<std::ve
                 for (int k = 0; k < j; ++k) {
                     sum += L[j][k] * L[j][k];
                 }
-                L[j][j] = std::sqrt(A[j][j] - sum);
+                L[j][j] = sqrt(A[j][j] - sum);
             } else {
                 for (int k = 0; k < j; ++k) {
                     sum += L[i][k] * L[j][k];
@@ -38,9 +39,9 @@ std::vector<std::vector<double>> choleskyDecomposition(const std::vector<std::ve
 }
 
 
-std::vector<double> solveLowerTriangular(const std::vector<std::vector<double>>& L, const std::vector<double>& b) {
+vector<double> solveLowerTriangular(const vector<vector<double>>& L, const vector<double>& b) {
     int n = L.size();
-    std::vector<double> y(n, 0.0);
+    vector<double> y(n, 0.0);
 
     for (int i = 0; i < n; ++i) {
         double sum = 0.0;
@@ -54,9 +55,9 @@ std::vector<double> solveLowerTriangular(const std::vector<std::vector<double>>&
 }
 
 
-std::vector<double> solveUpperTriangular(const std::vector<std::vector<double>>& L, const std::vector<double>& y) {
+vector<double> solveUpperTriangular(const vector<vector<double>>& L, const vector<double>& y) {
     int n = L.size();
-    std::vector<double> x(n, 0.0);
+    vector<double> x(n, 0.0);
 
     for (int i = n - 1; i >= 0; --i) {
         double sum = 0.0;
@@ -71,42 +72,42 @@ std::vector<double> solveUpperTriangular(const std::vector<std::vector<double>>&
 
 int main() {
     int n;
-    std::cout << "Podaj rozmiar macierzy: ";
-    std::cin >> n;
+    cout << "Podaj rozmiar macierzy: ";
+    cin >> n;
 
-    std::vector<std::vector<double>> A(n, std::vector<double>(n));
-    std::vector<double> b(n);
+    vector<vector<double>> A(n, vector<double>(n));
+    vector<double> b(n);
 
-    std::cout << "Wpisz elementy macirzy A:" << std::endl;
+    cout << "Wpisz elementy macirzy A:" << endl;
     for (int i = 0; i < n; ++i) {
-        std::cout << "Wpisz elementy wierszu " << i + 1 << ": ";
+        cout << "Wpisz elementy wierszu " << i + 1 << ": ";
         for (int j = 0; j < n; ++j) {
-            std::cin >> A[i][j];
+            cin >> A[i][j];
         }
     }
 
-    std::cout << "Wpisz elementy wectoru b: ";
+    cout << "Wpisz elementy wectoru b: ";
     for (int i = 0; i < n; ++i) {
-        std::cin >> b[i];
+        cin >> b[i];
     }
 
-    std::vector<std::vector<double>> L = choleskyDecomposition(A);
+    vector<vector<double>> L = choleskyDecomposition(A);
 
-    std::cout << "\nDolna macierz trojkatna L:" << std::endl;
+    cout << "\nDolna macierz trojkatna L:" << endl;
     printMatrix(L);
 
-    std::vector<double> y = solveLowerTriangular(L, b);
+    vector<double> y = solveLowerTriangular(L, b);
 
-    std::cout << "\nWector y:" << std::endl;
+    cout << "\nWector y:" << endl;
     for (double val : y) {
-        std::cout << val << std::endl;
+        cout << val << endl;
     }
 
-    std::vector<double> x = solveUpperTriangular(L, y);
+    vector<double> x = solveUpperTriangular(L, y);
 
-    std::cout << "\nRozwiązanie wektora x:" << std::endl;
+    cout << "\nRozwiązanie wektora x:" << endl;
     for (double val : x) {
-        std::cout << val << std::endl;
+        cout << val << endl;
     }
 
     return 0;
