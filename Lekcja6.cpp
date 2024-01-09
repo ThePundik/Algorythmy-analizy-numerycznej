@@ -242,6 +242,14 @@ int main()
         if (wybor == 0) {
             cout << " End... " << endl;
         }
+        if (wybor == 12) {
+            cout << " Program nie istneje! " << endl;
+            int a = 11;
+            int b = 12;
+            int result;
+            result = a + b;
+            cout << result << endl;
+        }
     }
 }
 

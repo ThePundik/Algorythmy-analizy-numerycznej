@@ -7,5 +7,7 @@
 
 int main()
 {
-    std::cout << __cplusplus << std::endl;
+    std::vector<int> mojVector = {1, 2, 3, 4, 5};
+    int rozmiarVector = mojVector.size();
+    std::cout << rozmiarVector << std::endl;
 }
